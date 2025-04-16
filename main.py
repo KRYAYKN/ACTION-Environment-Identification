@@ -133,7 +133,9 @@ validation_environment = None
 if source_branch.startswith(RepositorySpecialPrefixes.FEATURE) and destination_branch == AvailableEnvironments.QA:
     branch = AvailableEnvironments.QA
     release_type = AvailableReleaseTypes.REGULAR
-
+elif source_branch == "promotion/qa" and destination_branch == "qa":
+    release_env = "QA-RELEASE"
+    validation_env = "QA-VALIDATION"
 elif destination_branch.startswith(RepositorySpecialPrefixes.RELEASE) and source_branch == AvailableEnvironments.QA:
     branch = AvailableEnvironments.PREPROD
     release_type = AvailableReleaseTypes.REGULAR
