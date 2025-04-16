@@ -179,11 +179,4 @@ if (
     raise_error("Invalid information provided", source_branch, destination_branch)
 
 
-import json
-sandbox_mapping = {
-    "QA-RELEASE": ["LocalizationSandbox", "LocalizationSandbox"],
-    "PREPROD-RELEASE": ["BCSB-UK-PP"],
-    "PROD-RELEASE": ["BCSB-UK-PRD"]
-}
-sandbox_list = sandbox_mapping.get(environmentInfo.releaseEnvironment, [])
-set_gha_output("sandbox-list", json.dumps(sandbox_list))
+
